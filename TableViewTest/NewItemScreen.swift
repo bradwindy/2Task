@@ -9,15 +9,15 @@
 import UIKit
 import CoreData
 
-class NewItemScreen: UIViewController {
+class NewItemScreen: UITableViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var dateTimePicker: UIDatePicker!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doneButton.action = #selector(buttonClicked(sender:))
+        doneButton.addTarget(self, action: #selector(buttonClicked(sender:)), for: .touchUpInside)
         dateTimePicker.minimumDate = Date()
     }
     
